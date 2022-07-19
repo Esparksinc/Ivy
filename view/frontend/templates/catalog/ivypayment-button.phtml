@@ -1,0 +1,14 @@
+<?php $_product = $block->getProduct(); ?>
+<?php $banner = $block->getBannerData(); ?>
+
+<div
+  class="ivy-banner"
+  style="visibility: hidden; padding-bottom: 15px;"
+  data-variant="product"
+  data-value="<?= $_product->getFinalPrice() ?>"
+  data-category="<?= $banner->getMcc() ?>"
+  data-locale="<?= $banner->getLocale() ?>"
+  data-project-id="io1"
+  data-shop-logo="<?= $banner->getLogo() ?>"
+  data-currency-code="<?= $_product->getStore()->getCurrentCurrencyCode(); ?>"
+></div>

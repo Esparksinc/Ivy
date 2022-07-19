@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<section id="payment" sortOrder="1000" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<group id="ivy" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>Ivy Payment</label>
+				<field id="active" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Enabled</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="title" type="text" sortOrder="20" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Title</label>
+				</field>
+				<field id="storename" type="text" sortOrder="30" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Storename</label>
+					<validate>required-entry</validate>
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+				<field id="app_id" type="text" sortOrder="40" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Your Ivy App ID</label>
+					<validate>required-entry</validate>
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+				<field id="mcc" type="text" sortOrder="50" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Merchant category code</label>
+					<validate>required-entry</validate>
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+				<field id="locale" type="select" sortOrder="50" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Select Locale</label>
+					<validate>required-entry</validate>
+					<source_model>Esparksinc\IvyPayment\Model\Config\Source\Locale</source_model>
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+				<field id="sandbox" type="select" sortOrder="60" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Activate Sand Box</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="active">1</field>
+                    </depends>
+				</field>
+				<field id="sandbox_api_key" type="text" sortOrder="70" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Sandbox Ivy API Key</label>
+					<validate>required-entry</validate>
+					<depends>
+                        <field id="active">1</field>
+						<field id="sandbox">1</field>
+                    </depends>
+				</field>
+				<field id="sandbox_webhook_secret" type="text" sortOrder="70" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Sandbox webhook signing secret</label>
+					<validate>required-entry</validate>
+					<depends>
+                        <field id="active">1</field>
+						<field id="sandbox">1</field>
+                    </depends>
+				</field>
+				<field id="live_api_key" type="text" sortOrder="70" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Ivy API Key</label>
+					<validate>required-entry</validate>
+					<depends>
+                        <field id="active">1</field>
+						<field id="sandbox">0</field>
+                    </depends>
+				</field>
+				<field id="webhook_secret" type="text" sortOrder="70" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Webhook signing secret</label>
+					<validate>required-entry</validate>
+					<depends>
+                        <field id="active">1</field>
+						<field id="sandbox">0</field>
+                    </depends>
+				</field>
+				<field id="sort_order" type="text" sortOrder="80" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Sort Order</label>
+				</field>
+				<field id="success_url" type="label" sortOrder="90" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Callback URL for successful orders</label>
+					<comment>https://  %Shop_Domain%   /ivypayment/ivypayment/success</comment>
+				</field>
+				<field id="fail_url" type="label" sortOrder="100" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Callback URL for failed orders</label>
+					<comment>https://  %Shop_Domain%   /ivypayment/fail</comment>
+				</field>
+				<field id="webhook_url" type="label" sortOrder="110" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>Webhook URL</label>
+					<comment>https://  %Shop_Domain%   /ivypayment/webhook</comment>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

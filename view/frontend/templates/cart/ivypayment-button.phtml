@@ -1,0 +1,13 @@
+<?php $banner = $block->getBannerData(); ?>
+
+<div
+  class="ivy-banner"
+  style="visibility: hidden; clear: left"
+  data-variant="cart"
+  data-value="<?= $block->getQuote()->getBaseGrandTotal() ?>"
+  data-category="<?= $banner->getMcc() ?>"
+  data-locale="<?= $banner->getLocale() ?>"
+  data-project-id="io1"
+  data-shop-logo="<?= $banner->getLogo() ?>"
+  data-currency-code="<?= $block->getQuote()->getStore()->getCurrentCurrencyCode(); ?>"
+></div>

@@ -1,0 +1,27 @@
+<?php $banner = $block->getBannerData(); ?>
+<div class="banner-div">
+
+</div>
+<script>
+  require([
+    'jquery',
+    'Magento_Customer/js/customer-data',
+    ,'domReady!'], function ($, customerData) {
+      jQuery('[data-block="minicart"]').on('contentUpdated', function ()  {
+        setTimeout(function() {
+          
+          var subtotal = customerData.get('cart')._latestValue.subtotalAmount;
+          $('.banner-div .ivy-banner').remove();
+          $('.banner-div').html("<div class='ivy-banner' style='visibility: hidden;' data-variant='cart' data-value="+subtotal+" data-category='<?= $banner->getMcc() ?>' data-locale='<?= $banner->getLocale() ?>' data-project-id='io1' data-shop-logo='<?= $banner->getLogo() ?>' data-currency-code='<?= $block->getQuote()->getStore()->getCurrentCurrencyCode(); ?>'></div>");
+          window.initIvy();
+          
+          if(subtotal == 0)
+          {
+            $('.banner-div .ivy-banner').remove();
+          }
+        }, 2000);
+      });
+      
+    }); 
+  
+</script>
