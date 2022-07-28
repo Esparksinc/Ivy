@@ -84,7 +84,7 @@
 				</field>
 				<field id="success_url" type="label" sortOrder="90" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
 					<label>Callback URL for successful orders</label>
-					<comment>https://  %Shop_Domain%   /ivypayment/ivypayment/success</comment>
+					<comment>https://  %Shop_Domain%   /ivypayment/success</comment>
 				</field>
 				<field id="fail_url" type="label" sortOrder="100" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
 					<label>Callback URL for failed orders</label>

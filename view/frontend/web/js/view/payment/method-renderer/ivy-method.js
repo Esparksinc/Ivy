@@ -26,22 +26,18 @@ define(
             },
 
             banner: function() {
-                console.log('banner');
                 window.initIvy();
             },
 
             getTotal: function() {
-                console.log('total');
                 return totals.totals().base_grand_total;
             },
 
             getCurrency: function() {
-                console.log('currency');
                 return totals.totals().quote_currency_code;
             },
 
             getStoreLogo: function() {
-                console.log('getStoreLogo');
                 return window.checkoutConfig.logo;
             },
 
